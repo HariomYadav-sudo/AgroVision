@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroVision - Sign Up</title>
+    <!-- TailwindCSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#16a34a',
+                        secondary: '#22c55e',
+                        accent: '#84cc16',
+                        dark: '#1a1a1a',
+                        light: '#f7fee7'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(120deg, #f0fdf4, #dcfce7, #bbf7d0);
+            min-height: 100vh;
+        }
+        
+        .form-card {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-card:hover {
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .input-field {
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+        }
+        
+        .password-toggle {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .password-toggle:hover {
+            color: #16a34a;
+        }
+        
+        .agro-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2316a34a' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center py-12 agro-pattern">
+    <div class="container mx-auto px-4 flex justify-center items-center">
+        <div class="max-w-md w-full">
+            <!-- Logo -->
+            <div class="flex justify-center mb-2">
+                <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white font-bold text-2xl shadow-md">AV</div>
+            </div>
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-primary">Agro<span class="text-accent">Vision</span></h1>
+                <p class="text-gray-600 mt-1">Create your account</p>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div class="bg-white form-card p-8">
+                <form id="signup-form" class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="first-name" class="block text-gray-700 mb-2">First Name</label>
+                            <input type="text" id="first-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-field focus:outline-none focus:ring-2 focus:ring-primary" placeholder="John" required>
+                        </div>
+                        <div>
+                            <label for="last-name" class="block text-gray-700 mb-2">Last Name</label>
+                            <input type="text" id="last-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-field focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-field focus:outline-none focus:ring-2 focus:ring-primary" placeholder="john@example.com" required>
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-field focus:outline-none focus:ring-2 focus:ring-primary" placeholder="+91 9876543210">
+                    </div>
+
+                    <div>
+                        <label for="user-type" class="block text-gray-700 mb-2">I am a</label>
+                        <select id="user-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-field focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="farmer">Farmer</option>
+                            <option value="agri-expert">Agriculture Expert</option>
+                            <option value="distributor">Distributor</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="location" class="block text-gray-700 mb-2">Location</label>
+                        <input type="text" id="location" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-field focus:outline-none focus:ring-2 focus:ring-primary" placeholder="State, District" required>
+                    </div>
+
+                    <div>
+                        <label for="farm-size" class="block text-gray-700 mb-2">Farm Size (acres)</label>
+                        <input type="number" id="farm-size" min="0" step="0.1" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-field focus:outline-none focus:ring-2 focus:ring-primary" placeholder="5.5">
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-gray-700 mb-2">Password</label>
+                        <div class="relative">
+                            <input type="password" id="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-field focus:outline-none focus:ring-2 focus:ring-primary" placeholder="••••••••" required>
+                            <span class="absolute right-3 top-3.5 text-gray-400 password-toggle" id="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <div id="password-strength" class="mt-2 hidden">
+                            <div class="flex items-center mb-1">
+                                <div class="h-1 w-1/4 bg-gray-200 rounded-full mr-1">
+                                    <div id="strength-bar" class="h-1 rounded-full"></div>
+                                </div>
+                                <span id="strength-text" class="text-xs"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="confirm-password" class="block text-gray-700 mb-2">Confirm Password</label>
+                        <div class="relative">
+                            <input type="password" id="confirm-password" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-field focus:outline-none focus:ring-2 focus:ring-primary" placeholder="••••••••" required>
+                            <span class="absolute right-3 top-3.5 text-gray-400 password-toggle" id="toggle-confirm-password">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <p id="password-match" class="text-xs mt-1 hidden"></p>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input type="checkbox" id="terms" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                        <label for="terms" class="ml-2 block text-sm text-gray-700">
+                            I agree to the <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary text-white py-3 px-4 rounded-lg hover:bg-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                        Create Account
+                    </button>
+                </form>
+
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Already have an account? <a href="#" class="text-primary font-medium hover:underline">Sign in</a></p>
+                </div>
+
+                <div class="relative my-6">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        <i class="fab fa-google text-red-500 mr-2"></i> Google
+                    </a>
+                    <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        <i class="fab fa-facebook text-blue-600 mr-2"></i> Facebook
+                    </a>
+                </div>
+            </div>
+
+            <p class="mt-8 text-center text-gray-500 text-sm">
+                &copy; 2023 AgroVision. All rights reserved.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Password visibility toggle
+            const togglePassword = document.getElementById('toggle-password');
+            const toggleConfirmPassword = document.getElementById('toggle-confirm-password');
+            const passwordField = document.getElementById('password');
+            const confirmPasswordField = document.getElementById('confirm-password');
+
+            togglePassword.addEventListener('click', function() {
+                const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordField.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+
+            toggleConfirmPassword.addEventListener('click', function() {
+                const type = confirmPasswordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                confirmPasswordField.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+
+            // Password strength indicator
+            passwordField.addEventListener('input', function() {
+                const password = this.value;
+                const strengthIndicator = document.getElementById('password-strength');
+                const strengthBar = document.getElementById('strength-bar');
+                const strengthText = document.getElementById('strength-text');
+
+                // Reset
+                strengthIndicator.classList.remove('hidden');
+                strengthBar.className = 'h-1 rounded-full';
+
+                // Check password strength
+                let strength = 0;
+
+                // Length check
+                if (password.length >= 8) strength += 1;
+
+                // Contains lowercase, uppercase, number, special char
+                if (password.match(/([a-z])/)) strength += 1;
+                if (password.match(/([A-Z])/)) strength += 1;
+                if (password.match(/([0-9])/)) strength += 1;
+                if (password.match(/([!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/)) strength += 1;
+
+                // Update strength indicator
+                if (password.length === 0) {
+                    strengthIndicator.classList.add('hidden');
+                } else if (strength <= 2) {
+                    strengthBar.classList.add('bg-red-500', 'w-1/4');
+                    strengthText.textContent = 'Weak password';
+                    strengthText.className = 'text-xs text-red-500';
+                } else if (strength === 3) {
+                    strengthBar.classList.add('bg-yellow-500', 'w-2/4');
+                    strengthText.textContent = 'Medium password';
+                    strengthText.className = 'text-xs text-yellow-500';
+                } else if (strength === 4) {
+                    strengthBar.classList.add('bg-green-500', 'w-3/4');
+                    strengthText.textContent = 'Strong password';
+                    strengthText.className = 'text-xs text-green-500';
+                } else {
+                    strengthBar.classList.add('bg-green-600', 'w-full');
+                    strengthText.textContent = 'Very strong password';
+                    strengthText.className = 'text-xs text-green-600';
+                }
+            });
+
+            // Password match checking
+            confirmPasswordField.addEventListener('input', function() {
+                const password = passwordField.value;
+                const confirmPassword = this.value;
+                const matchIndicator = document.getElementById('password-match');
+
+                if (confirmPassword.length === 0) {
+                    matchIndicator.classList.add('hidden');
+                    return;
+                }
+
+                matchIndicator.classList.remove('hidden');
+
+                if (password === confirmPassword) {
+                    matchIndicator.textContent = 'Passwords match';
+                    matchIndicator.className = 'text-xs mt-1 text-green-500';
+                } else {
+                    matchIndicator.textContent = 'Passwords do not match';
+                    matchIndicator.className = 'text-xs mt-1 text-red-500';
+                }
+            });
+
+            // Form submission
+            document.getElementById('signup-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Basic validation
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+                const terms = document.getElementById('terms').checked;
+
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+
+                if (!terms) {
+                    alert('You must agree to the terms and conditions');
+                    return;
+                }
+
+                // In a real application, you would send the data to a server here
+                // For demo purposes, we'll just show a success message
+                alert('Account created successfully! Redirecting to login...');
+
+                // Reset form
+                this.reset();
+                document.getElementById('password-strength').classList.add('hidden');
+                document.getElementById('password-match').classList.add('hidden');
+
+                // In a real application, you would redirect to the login page
+                // window.location.href = 'login.html';
+            });
+
+            // Show farm size field only for farmers
+            const userType = document.getElementById('user-type');
+            const farmSizeField = document.getElementById('farm-size').parentElement;
+
+            userType.addEventListener('change', function() {
+                if (this.value === 'farmer') {
+                    farmSizeField.classList.remove('hidden');
+                } else {
+                    farmSizeField.classList.add('hidden');
+                }
+            });
+
+            // Initially hide farm size if not a farmer
+            if (userType.value !== 'farmer') {
+                farmSizeField.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
